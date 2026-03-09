@@ -1,0 +1,144 @@
+/* Phông chữ hiện đại từ Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-color: #0d1117;
+    --card-bg: #161b22;
+    --text-main: #ffffff;
+    --text-sub: #8b949e;
+    --accent-color: #58a6ff;
+    --glow-color: rgba(88, 166, 255, 0.3);
+    --btn-green: linear-gradient(135deg, #238636, #2ea043);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Hiệu ứng ánh sáng nền (Background Glow) */
+body::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: var(--accent-color);
+    filter: blur(180px);
+    opacity: 0.12;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.profile-card {
+    background-color: var(--card-bg);
+    padding: 3rem 2rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    max-width: 340px;
+    width: 90%;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Hiệu ứng khi di chuột vào Card */
+.profile-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-color);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 15px rgba(88, 166, 255, 0.1);
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    padding: 4px;
+    border: 3px solid var(--accent-color);
+    margin-bottom: 1.5rem;
+    object-fit: cover;
+    box-shadow: 0 0 25px var(--glow-color);
+    transition: transform 0.5s ease;
+}
+
+.profile-card:hover .avatar {
+    transform: rotate(5deg) scale(1.05);
+}
+
+h1 {
+    font-size: 1.75rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.username {
+    color: var(--accent-color);
+    font-size: 0.95rem;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+p {
+    color: var(--text-sub);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--btn-green);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(35, 134, 54, 0.3);
+}
+
+.btn:hover {
+    filter: brightness(1.15);
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(46, 160, 67, 0.5);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn img {
+    width: 24px;
+    margin-right: 12px;
+}
+
+/* Animation mượt mà */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px) scale(0.9); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+}
